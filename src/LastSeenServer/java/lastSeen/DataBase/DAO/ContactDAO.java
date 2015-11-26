@@ -24,7 +24,7 @@ public class ContactDAO {
         transaction = session.beginTransaction();
         try {
             Query query;
-            query = session.getNamedQuery("Contact.findAll");
+            query = session.getNamedQuery(findAll);
             contacts = HibernateUtil.listFrom(query);
 
         } catch (final RuntimeException e) {

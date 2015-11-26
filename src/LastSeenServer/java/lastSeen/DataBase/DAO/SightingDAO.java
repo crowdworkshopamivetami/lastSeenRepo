@@ -24,7 +24,7 @@ public class SightingDAO {
         transaction = session.beginTransaction();
         try {
             Query query;
-            query = session.getNamedQuery("Contact.findAll");
+            query = session.getNamedQuery(findAll);
             sightings = HibernateUtil.listFrom(query);
 
         } catch (final RuntimeException e) {
