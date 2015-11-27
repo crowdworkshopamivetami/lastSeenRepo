@@ -15,13 +15,13 @@ public class Trip {
     private List<CheckIn> checkIns;
     private boolean isDelayNotification;
     private int numDaysNotification;
-    private List<String> sharingList;
+    private List<SharingEmail> sharingList;
 
 
     public Trip () {}
 
     public Trip (int id, String title, Date startDate, Date endDate, List<CheckIn> checkIns, boolean isDelayNotification,
-                 int numDaysNotification, List<String> sharingList) {
+                 int numDaysNotification, List<SharingEmail> sharingList) {
         this.id = id;
         this.title = title;
         this.startDate = startDate;
@@ -88,11 +88,11 @@ public class Trip {
         this.numDaysNotification = numDaysNotification;
     }
 
-    public List<String> getSharingList() {
+    public List<SharingEmail> getSharingList() {
         return sharingList;
     }
 
-    public void setSharingList(List<String> sharingList) {
+    public void setSharingList(List<SharingEmail> sharingList) {
         this.sharingList = sharingList;
     }
 
@@ -109,8 +109,8 @@ public class Trip {
         sb.append(", isDelayNotification: ").append(this.getIsDelayNotification())
                 .append(", numDaysNotification: ").append(this.getNumDaysNotification())
                 .append(", sharingList: ").append(this.getSharingList());
-        for (String eMail : sharingList)
-            sb.append(eMail);
+        for (SharingEmail sharingEmail : sharingList)
+            sb.append(sharingEmail.getEmail());
         return sb.toString();
     }
 }

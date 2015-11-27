@@ -1,6 +1,8 @@
 package lastSeen.DataBase.DAO;
 
-import lastSeen.DataBase.dbObjects.Contact;
+import lastSeen.DataBase.dbObjects.MissingPerson;
+import lastSeen.DataBase.dbObjects.Sighting;
+import lastSeen.DataBase.dbObjects.Trip;
 import lastSeen.DataBase.hibernate.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -9,23 +11,23 @@ import org.hibernate.Transaction;
 import java.util.List;
 
 /**
- * Created by kabessa on 21/11/2015.
+ * Created by Barak on 24/11/2015.
  */
-public class ContactDAO {
+public class TripDAO {
 
-    private static String FIND_ALL = "Contact.findAll";
+    private static String FIND_ALL = "Trip.findAll";
 
-    public static List<Contact> findAll() {
-        System.out.println(ContactDAO.class + ": finaAll : Start");
-        List<Contact> contacts;
+    public static List<Trip> findAll() {
+        System.out.println(TripDAO.class + ": finaAll : Start");
+        List<Trip> trips;
         Session session;
         Transaction transaction;
         session = HibernateUtil.getSession();
         transaction = session.beginTransaction();
         try {
             Query query;
-            query = session.getNamedQuery(FIND_ALL);
-            contacts = HibernateUtil.listFrom(query);
+            query = session.getNamedQuery("MissingPerson.findAll");
+            trips = HibernateUtil.listFrom(query);
 
         } catch (final RuntimeException e) {
             System.err.println("RuntimeException: " + e.getMessage());
@@ -39,18 +41,19 @@ public class ContactDAO {
                 System.out.println(e.getMessage());
             }
         }
-        System.out.println(ContactDAO.class + ": finaAll : End");
-        return contacts;
+        System.out.println(TripDAO.class + ": finaAll : End");
+        return trips;
     }
 
-    public static void update(final Contact contactEntry) {
-        System.out.println(ContactDAO.class + ": update : Start");
+
+    public static void update(final Trip tripEntry) {
+        System.out.println(TripDAO.class + ": update : Start");
         Session session;
         Transaction transaction;
         session = HibernateUtil.getSession();
         transaction = session.beginTransaction();
         try {
-            session.update(contactEntry);
+            session.update(tripEntry);
             session.flush();
             transaction.commit();
         } catch (final RuntimeException e) {
@@ -64,17 +67,17 @@ public class ContactDAO {
                 System.out.println(e.getMessage());
             }
         }
-        System.out.println(ContactDAO.class + ": update : End");
+        System.out.println(TripDAO.class + ": update : End");
     }
 
-    public static void add(final Contact contactEntry) {
-        System.out.println(ContactDAO.class + ": add : Start");
+    public static void add(final Trip tripEntry) {
+        System.out.println(TripDAO.class + ": add : Start");
         Session session;
         Transaction transaction;
         session = HibernateUtil.getSession();
         transaction = session.beginTransaction();
         try {
-            session.save(contactEntry);
+            session.save(tripEntry);
             session.flush();
             transaction.commit();
         } catch (final RuntimeException e) {
@@ -88,18 +91,18 @@ public class ContactDAO {
                 System.out.println(e.getMessage());
             }
         }
-        System.out.println(ContactDAO.class + ": add : End");
+        System.out.println(TripDAO.class + ": add : End");
     }
 
-    public static boolean delete(final Contact contactEntry) {
-        System.out.println(ContactDAO.class + ": delete : Start");
+    public static boolean delete(final Trip tripEntry) {
+        System.out.println(TripDAO.class + ": delete : Start");
         Session session;
         Transaction transaction;
         session = HibernateUtil.getSession();
         transaction = session.beginTransaction();
-        Boolean isDeleted= false;
+        Boolean isDeleted;
         try {
-            session.delete(contactEntry);
+            session.delete(tripEntry);
             session.flush();
             transaction.commit();
         } catch (final RuntimeException e) {
@@ -114,7 +117,10 @@ public class ContactDAO {
             }
         }
         isDeleted = true;
-        System.out.println(ContactDAO.class + ": delete : End (" + isDeleted + ")");
+        System.out.println(TripDAO.class + ": delete : End (" + isDeleted + ")");
         return isDeleted;
     }
 }
+
+
+
