@@ -44,6 +44,7 @@ public class UserDAO {
     }
 
     public static void update(final User userEntry){
+        System.out.println(UserDAO.class + ": update : Start");
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         try {
