@@ -1,6 +1,6 @@
 package lastSeen.DataBase.DAO;
 
-import lastSeen.DataBase.dbObjects.Contact;
+import lastSeen.DataBase.dbObjects.MissingPerson;
 import lastSeen.DataBase.hibernate.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -15,7 +15,7 @@ public class MissingPersonDAO {
 
     private static String findAll = "MissingPerson.findAll";
 
-    public static List<Contact> findAll() {
+    public static List<MissingPerson> findAll() {
         System.out.println(MissingPersonDAO.class + ": finaAll : Start");
         List<MissingPerson> missingPersons;
         Session session;
@@ -25,7 +25,7 @@ public class MissingPersonDAO {
         try {
             Query query;
             query = session.getNamedQuery("MissingPerson.findAll");
-            missimgPersons = HibernateUtil.listFrom(query);
+            missingPersons = HibernateUtil.listFrom(query);
 
         } catch (final RuntimeException e) {
             System.err.println("RuntimeException: " + e.getMessage());
@@ -39,8 +39,8 @@ public class MissingPersonDAO {
                 System.out.println(e.getMessage());
             }
         }
-        System.out.println(ContactDAO.class + ": finaAll : End");
-        return contacts;
+        System.out.println(MissingPersonDAO.class + ": finaAll : End");
+        return missingPersons;
     }
 }
 
