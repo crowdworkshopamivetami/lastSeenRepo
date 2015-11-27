@@ -1,6 +1,6 @@
 package lastSeen.DataBase.DAO;
 
-import lastSeen.DataBase.dbObjects.Contact;
+import lastSeen.DataBase.dbObjects.CheckIn;
 import lastSeen.DataBase.hibernate.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -9,15 +9,15 @@ import org.hibernate.Transaction;
 import java.util.List;
 
 /**
- * Created by kabessa on 21/11/2015.
+ * Created by yoavsusan on 11/27/2015.
  */
-public class ContactDAO {
+public class CheckInDAO {
 
-    private static String FIND_ALL = "Contact.findAll";
+    private static String FIND_ALL = "CheckIn.findAll";
 
-    public static List<Contact> findAll() {
-        System.out.println(ContactDAO.class + ": finaAll : Start");
-        List<Contact> contacts;
+    public static List<CheckIn> findAll() {
+        System.out.println(CheckInDAO.class + ": finaAll : Start");
+        List<CheckIn> checkIns;
         Session session;
         Transaction transaction;
         session = HibernateUtil.getSession();
@@ -25,7 +25,7 @@ public class ContactDAO {
         try {
             Query query;
             query = session.getNamedQuery(FIND_ALL);
-            contacts = HibernateUtil.listFrom(query);
+            checkIns = HibernateUtil.listFrom(query);
 
         } catch (final RuntimeException e) {
             System.err.println("RuntimeException: " + e.getMessage());
@@ -39,18 +39,18 @@ public class ContactDAO {
                 System.out.println(e.getMessage());
             }
         }
-        System.out.println(ContactDAO.class + ": finaAll : End");
-        return contacts;
+        System.out.println(CheckInDAO.class + ": finaAll : End");
+        return checkIns;
     }
 
-    public static void update(final Contact contactEntry) {
-        System.out.println(ContactDAO.class + ": update : Start");
+    public static void update(final CheckIn checkInEntry) {
+        System.out.println(CheckInDAO.class + ": update : Start");
         Session session;
         Transaction transaction;
         session = HibernateUtil.getSession();
         transaction = session.beginTransaction();
         try {
-            session.update(contactEntry);
+            session.update(checkInEntry);
             session.flush();
             transaction.commit();
         } catch (final RuntimeException e) {
@@ -64,17 +64,17 @@ public class ContactDAO {
                 System.out.println(e.getMessage());
             }
         }
-        System.out.println(ContactDAO.class + ": update : End");
+        System.out.println(CheckInDAO.class + ": update : End");
     }
 
-    public static void add(final Contact contactEntry) {
-        System.out.println(ContactDAO.class + ": add : Start");
+    public static void add(final CheckIn checkInEntry) {
+        System.out.println(CheckInDAO.class + ": add : Start");
         Session session;
         Transaction transaction;
         session = HibernateUtil.getSession();
         transaction = session.beginTransaction();
         try {
-            session.save(contactEntry);
+            session.save(checkInEntry);
             session.flush();
             transaction.commit();
         } catch (final RuntimeException e) {
@@ -88,18 +88,18 @@ public class ContactDAO {
                 System.out.println(e.getMessage());
             }
         }
-        System.out.println(ContactDAO.class + ": add : End");
+        System.out.println(CheckInDAO.class + ": add : End");
     }
 
-    public static boolean delete(final Contact contactEntry) {
-        System.out.println(ContactDAO.class + ": delete : Start");
+    public static boolean delete(final CheckIn checkInEntry) {
+        System.out.println(CheckInDAO.class + ": delete : Start");
         Session session;
         Transaction transaction;
         session = HibernateUtil.getSession();
         transaction = session.beginTransaction();
-        Boolean isDeleted= false;
+        Boolean isDeleted;
         try {
-            session.delete(contactEntry);
+            session.delete(checkInEntry);
             session.flush();
             transaction.commit();
         } catch (final RuntimeException e) {
@@ -114,7 +114,7 @@ public class ContactDAO {
             }
         }
         isDeleted = true;
-        System.out.println(ContactDAO.class + ": delete : End (" + isDeleted + ")");
+        System.out.println(CheckInDAO.class + ": delete : End (" + isDeleted + ")");
         return isDeleted;
     }
 }

@@ -97,7 +97,7 @@ public class SightingDAO {
         Transaction transaction;
         session = HibernateUtil.getSession();
         transaction = session.beginTransaction();
-        Boolean isDeleted= false;
+        Boolean isDeleted;
         try {
             session.delete(sightingEntry);
             session.flush();
