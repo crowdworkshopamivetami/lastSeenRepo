@@ -37,7 +37,7 @@
         <property name="hibernate.query.factory_class">org.hibernate.hql.ast.ASTQueryTranslatorFactory</property>
 
         <mapping
-                resource="lastSeen/DataBase/hibernate/contact.hbm.xml" />
+                resource="lastSeen/DataBase/hibernate/hbm.xmls/contact.hbm.xml" />
 
     </session-factory>
 </hibernate-configuration>
