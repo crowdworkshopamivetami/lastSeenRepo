@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang = "en" ng-app = "lastSeen">
+<head>
     <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+    <title>lastSeen</title>
 
+    <!--    lib scripts     -->
+    <script src = "LastSeenClient/src/lib/angular.js"></script>
+    <script src = "LastSeenClient/src/lib/angular-animate.min.js"></script>
+    <script src = "LastSeenClient/src/lib/angular-route.js"></script>
+
+    <!--    appliction scripts     -->
+    <script src = "LastSeenClient/src/js/missingPerson/addMissingPerson.js"></script>
+    <script src = "LastSeenClient/src/js/missingPerson/missingPersons.js"></script>
+    <script src=  "LastSeenClient/src/js/app/headerCtrl.js"></script>
+    <script src = "LastSeenClient/src/js/login/loginCtrl.js"></script>
+    <script src = "LastSeenClient/src/js/tripTracker/trackYourTripMainCtrl.js"></script>
+    <script src = "LastSeenClient/src/js/app/lastSeen.js"></script>
+
+    <!--    design   -->
+    <link rel="shortcut icon" type="image/png" href="LastSeenClient/src/resources/images/favicon.png"/>
+    <link rel="stylesheet" href="LastSeenClient/src/resources/css/app.css">
+
+</head>
+<body class = "container">
+    <div ng-controller="headerController">
+        <img src = "LastSeenClient/src/resources/images/LOGO.png"/>
+        <button type="button" ng-click="changePage('/missingPersons')">MissingPersons</button>
+        <button type="button" ng-click="changePage('/addMissingPerson')">Add MissingPersons</button>
+        <button type="button" ng-click="changePage('/trackYourTrip')">trackYourTrip</button>
+        <button type="button" ng-click="changePage('/login')">login</button>
+        <button type="button" ng-click="changePage('/about')">about</button>
+    </div>
+
+    <div ng-view></div>
 </body>
 </html>
