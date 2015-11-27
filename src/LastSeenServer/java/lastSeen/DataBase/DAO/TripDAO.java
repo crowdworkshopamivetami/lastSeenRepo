@@ -2,6 +2,7 @@ package lastSeen.DataBase.DAO;
 
 import lastSeen.DataBase.dbObjects.MissingPerson;
 import lastSeen.DataBase.dbObjects.Sighting;
+import lastSeen.DataBase.dbObjects.Trip;
 import lastSeen.DataBase.hibernate.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -12,13 +13,13 @@ import java.util.List;
 /**
  * Created by Barak on 24/11/2015.
  */
-public class MissingPersonDAO {
+public class TripDAO {
 
-    private static String FIND_ALL = "MissingPerson.findAll";
+    private static String FIND_ALL = "Trip.findAll";
 
-    public static List<MissingPerson> findAll() {
-        System.out.println(MissingPersonDAO.class + ": finaAll : Start");
-        List<MissingPerson> missingPersons;
+    public static List<Trip> findAll() {
+        System.out.println(TripDAO.class + ": finaAll : Start");
+        List<Trip> trips;
         Session session;
         Transaction transaction;
         session = HibernateUtil.getSession();
@@ -26,7 +27,7 @@ public class MissingPersonDAO {
         try {
             Query query;
             query = session.getNamedQuery("MissingPerson.findAll");
-            missingPersons = HibernateUtil.listFrom(query);
+            trips = HibernateUtil.listFrom(query);
 
         } catch (final RuntimeException e) {
             System.err.println("RuntimeException: " + e.getMessage());
@@ -40,19 +41,19 @@ public class MissingPersonDAO {
                 System.out.println(e.getMessage());
             }
         }
-        System.out.println(MissingPersonDAO.class + ": finaAll : End");
-        return missingPersons;
+        System.out.println(TripDAO.class + ": finaAll : End");
+        return trips;
     }
 
 
-    public static void update(final MissingPerson missingPersonEntry) {
-        System.out.println(MissingPersonDAO.class + ": update : Start");
+    public static void update(final Trip tripEntry) {
+        System.out.println(TripDAO.class + ": update : Start");
         Session session;
         Transaction transaction;
         session = HibernateUtil.getSession();
         transaction = session.beginTransaction();
         try {
-            session.update(missingPersonEntry);
+            session.update(tripEntry);
             session.flush();
             transaction.commit();
         } catch (final RuntimeException e) {
@@ -66,17 +67,17 @@ public class MissingPersonDAO {
                 System.out.println(e.getMessage());
             }
         }
-        System.out.println(MissingPersonDAO.class + ": update : End");
+        System.out.println(TripDAO.class + ": update : End");
     }
 
-    public static void add(final MissingPerson missingPersonEntry) {
-        System.out.println(MissingPersonDAO.class + ": add : Start");
+    public static void add(final Trip tripEntry) {
+        System.out.println(TripDAO.class + ": add : Start");
         Session session;
         Transaction transaction;
         session = HibernateUtil.getSession();
         transaction = session.beginTransaction();
         try {
-            session.save(missingPersonEntry);
+            session.save(tripEntry);
             session.flush();
             transaction.commit();
         } catch (final RuntimeException e) {
@@ -90,18 +91,18 @@ public class MissingPersonDAO {
                 System.out.println(e.getMessage());
             }
         }
-        System.out.println(MissingPersonDAO.class + ": add : End");
+        System.out.println(TripDAO.class + ": add : End");
     }
 
-    public static boolean delete(final MissingPerson missingPersonEntry) {
-        System.out.println(MissingPersonDAO.class + ": delete : Start");
+    public static boolean delete(final Trip tripEntry) {
+        System.out.println(TripDAO.class + ": delete : Start");
         Session session;
         Transaction transaction;
         session = HibernateUtil.getSession();
         transaction = session.beginTransaction();
         Boolean isDeleted;
         try {
-            session.delete(missingPersonEntry);
+            session.delete(tripEntry);
             session.flush();
             transaction.commit();
         } catch (final RuntimeException e) {
@@ -116,7 +117,7 @@ public class MissingPersonDAO {
             }
         }
         isDeleted = true;
-        System.out.println(MissingPersonDAO.class + ": delete : End (" + isDeleted + ")");
+        System.out.println(TripDAO.class + ": delete : End (" + isDeleted + ")");
         return isDeleted;
     }
 }
