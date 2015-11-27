@@ -41,6 +41,11 @@
         <property name="picUrl" type="java.lang.String">
             <column name="picUrl" length="45" />
         </property>
+        <list name="sightings" table="missing_person_to_sighting" cascade="all">
+            <key column="id"/>
+            <list-index column="sightingId"/>
+            <one-to-many class="lastSeen.DataBase.dbObjects.Sighting"/>
+        </list>
     </class>
 
     <query name="MissingPerson.findAll">from MissingPerson as con Order by con.firstName</query>
