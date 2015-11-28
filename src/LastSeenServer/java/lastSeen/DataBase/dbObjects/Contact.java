@@ -5,16 +5,14 @@ import lastSeen.commonObjects.PersonalInfo;
 /**
  * Created by kabessa on 21/11/2015.
  */
-public class Contact {
+public class Contact extends PersonalInfo {
     private int id = -1;
-    private PersonalInfo personalInfo;
     private String relation;
 
     public Contact(){}
 
-    public Contact(int id,PersonalInfo info, String relation){
-        this.id = id;
-        this.personalInfo = info;
+    public Contact(String firstName, String lastName, String phoneNumber, String email, String relation){
+        super(firstName, lastName, phoneNumber, email);
         this.relation = relation;
     }
 
@@ -24,14 +22,6 @@ public class Contact {
 
     public void setId(int id){
         this.id = id;
-    }
-
-    public PersonalInfo getPersonalInfo(){
-        return this.personalInfo;
-    }
-
-    public void setPersonalInfo(PersonalInfo info){
-        this.personalInfo = info;
     }
 
     public String getRelation(){
@@ -44,7 +34,7 @@ public class Contact {
 
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append("PersonalInfo : ").append(getPersonalInfo().toString())
+        sb.append(super.toString())
                 .append(", relation: ").append(relation);
         return sb.toString();
     }
