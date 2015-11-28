@@ -4,9 +4,12 @@ package lastSeen.DataBase.dbObjects;
  * Created by Barak on 27/11/2015.
  */
 public class SharingEmail {
+
     private int id;
     private String email;
+
     SharingEmail(){}
+
     SharingEmail(int id, String email){
         this.id = id;
         this.email = email;

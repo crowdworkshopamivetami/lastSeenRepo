@@ -35,7 +35,7 @@
         <property name="additionalDetails" type="java.lang.String">
         <column name="additionalDetails" length="1024" />
         </property>
-        <property name="registeredUserId" type="java.lang.int">
+        <property name="registeredUserId" type="java.lang.Integer">
             <column name="registeredUserId" length="11" />
         </property>
         <property name="picUrl" type="java.lang.String">

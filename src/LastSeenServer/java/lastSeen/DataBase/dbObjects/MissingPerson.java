@@ -1,5 +1,6 @@
 package lastSeen.DataBase.dbObjects;
 
+import lastSeen.commonObjects.PersonalInfo;
 
 /**
  * Created by Barak on 24/11/2015.
