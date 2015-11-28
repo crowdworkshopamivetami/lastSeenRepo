@@ -10,7 +10,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 @Path("/testRest")
-public class testRest implements RestService {
+public class testRest implements restService {
 
     @Context
     private HttpServletRequest httpServletRequest;

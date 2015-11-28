@@ -1,7 +1,6 @@
 package lastSeen.DataBase.DAO;
 
 import lastSeen.DataBase.dbObjects.MissingPerson;
-import lastSeen.DataBase.dbObjects.Sighting;
 import lastSeen.DataBase.hibernate.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
