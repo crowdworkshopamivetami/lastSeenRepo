@@ -9,16 +9,19 @@
             <generator class="increment" />
         </id>
         <property name="longitude" type="java.lang.Double">
-            <column name="longitude" length="45" />
+            <column name="longitude"/>
         </property>
         <property name="latitude" type="java.lang.Double">
-            <column name="latitude" length="45" />
+            <column name="latitude"/>
         </property>
         <property name="description" type="java.lang.String">
             <column name="description" length="1024" />
         </property>
         <property name="timeStamp" type="java.util.Date">
-            <column name="timeStamp" length="45" />
+            <column name="timeStamp"/>
+        </property>
+        <property name="userId" type="java.lang.Integer">
+            <column name="userId"/>
         </property>
     </class>
 

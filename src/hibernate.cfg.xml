@@ -36,13 +36,15 @@
         <property name="hibernate.is-connection-validation-required">true</property>
         <property name="hibernate.query.factory_class">org.hibernate.hql.ast.ASTQueryTranslatorFactory</property>
 
-        <mapping resource="lastSeen/DataBase/hibernate/hbm.xmls/contact.hbm.xml" />
-        <mapping resource="lastSeen/DataBase/hibernate/hbm.xmls/checkin.hbm.xml" />
-        <mapping resource="lastSeen/DataBase/hibernate/hbm.xmls/missingPerson.hbm.xml" />
-        <mapping resource="lastSeen/DataBase/hibernate/hbm.xmls/sharingEmail.hbm.xml" />
-        <mapping resource="lastSeen/DataBase/hibernate/hbm.xmls/sighting.hbm.xml" />
-        <mapping resource="lastSeen/DataBase/hibernate/hbm.xmls/trip.hbm.xml" />
-        <mapping resource="lastSeen/DataBase/hibernate/hbm.xmls/user.hbm.xml" />
+        <mapping resource="lastSeen/DataBase/hibernate/hbm/xmls/contact.hbm.xml" />
+        <mapping resource="lastSeen/DataBase/hibernate/hbm/xmls/checkin.hbm.xml" />
+        <mapping resource="lastSeen/DataBase/hibernate/hbm/xmls/missingPerson.hbm.xml" />
+        <mapping resource="lastSeen/DataBase/hibernate/hbm/xmls/sharingEmail.hbm.xml" />
+        <mapping resource="lastSeen/DataBase/hibernate/hbm/xmls/sighting.hbm.xml" />
+        <mapping resource="lastSeen/DataBase/hibernate/hbm/xmls/trip.hbm.xml" />
+        <mapping resource="lastSeen/DataBase/hibernate/hbm/xmls/user.hbm.xml" />
+        <mapping resource="lastSeen/DataBase/hibernate/hbm/xmls/PersonalInfo.hbm.xml" />
+
 
     </session-factory>
 </hibernate-configuration>
