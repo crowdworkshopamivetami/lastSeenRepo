@@ -8,7 +8,6 @@ public class RestResult<T> implements Serializable{
 
     private boolean success;
     private String  message;
-    private String  messageDetails;
     private T  data;
 
     public RestResult() {}
@@ -38,14 +37,6 @@ public class RestResult<T> implements Serializable{
 
     public void setMessage(String message) {
         this.message = message;
-    }
-
-    public String getMessageDetails() {
-        return messageDetails;
-    }
-
-    public void setMessageDetails(String messageDetails) {
-        this.messageDetails = messageDetails;
     }
 
     public T getData() {
