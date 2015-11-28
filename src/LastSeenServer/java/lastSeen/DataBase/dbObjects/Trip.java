@@ -76,7 +76,7 @@ public class Trip {
         return isDelayNotification;
     }
 
-    public void setDelayNotification(boolean delayNotification) {
+    public void setIsDelayNotification(boolean delayNotification) {
         isDelayNotification = delayNotification;
     }
 

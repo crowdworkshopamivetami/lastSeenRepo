@@ -4,6 +4,7 @@ package lastSeen.commonObjects;
  * Created by kabessa on 21/11/2015.
  */
 public class PersonalInfo {
+    private int id;
     private String firstName;
     private String lastName;
     private String phoneNumber;
@@ -11,13 +12,21 @@ public class PersonalInfo {
 
     public PersonalInfo(){}
 
-    public PersonalInfo(String firstName, String lastName, String phoneNumber, String email){
+    public PersonalInfo(int id, String firstName, String lastName, String phoneNumber, String email){
+        this.id=id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
 
+    public int getId(){
+        return this.id;
+    }
+
+    public void setId(int id){
+        this.id=id;
+    }
     public String getFirstName(){
         return firstName;
     }

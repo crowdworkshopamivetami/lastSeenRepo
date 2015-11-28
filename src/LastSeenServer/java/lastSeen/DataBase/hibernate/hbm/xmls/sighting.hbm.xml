@@ -8,23 +8,11 @@
         <id name="id" column="id">
             <generator class="increment" />
         </id>
-        <property name="firstName" type="java.lang.String">
-            <column name="firstName" length="45" />
-        </property>
-        <property name="lastName" type="java.lang.String">
-            <column name="lastName" length="45" />
-        </property>
         <property name="longitude" type="java.lang.Double">
             <column name="longitude" length="45" />
         </property>
         <property name="latitude" type="java.lang.Double">
             <column name="latitude" length="45" />
-        </property>
-        <property name="email" type="java.lang.String">
-            <column name="email" length="45" />
-        </property>
-        <property name="phoneNumber" type="java.lang.String">
-            <column name="phoneNumber" length="45" />
         </property>
         <property name="description" type="java.lang.String">
             <column name="description" length="1024" />
@@ -32,8 +20,10 @@
         <property name="timeStamp" type="java.util.Date">
             <column name="timeStamp" length="45" />
         </property>
+        <many-to-one name="info" class="lastSeen.commonObjects.PersonalInfo"
+                     column="info" not-null="true" unique="true" lazy="false" />
     </class>
 
-    <query name="Sighting.findAll">from Sighting as con Order by con.firstName</query>
+    <query name="Sighting.findAll">from Sighting as con Order by con.id</query>
 
 </hibernate-mapping>

@@ -3,8 +3,8 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="lastSeen.DataBase.dbObjects.Sighting"
-           table="sighting">
+    <class name="lastSeen.commonObjects.PersonalInfo"
+           table="personalInfo">
         <id name="id" column="id">
             <generator class="increment" />
         </id>
@@ -14,26 +14,12 @@
         <property name="lastName" type="java.lang.String">
             <column name="lastName" length="45" />
         </property>
-        <property name="longitude" type="java.lang.Double">
-            <column name="longitude" length="45" />
-        </property>
-        <property name="latitude" type="java.lang.Double">
-            <column name="latitude" length="45" />
-        </property>
         <property name="email" type="java.lang.String">
             <column name="email" length="45" />
         </property>
         <property name="phoneNumber" type="java.lang.String">
             <column name="phoneNumber" length="45" />
         </property>
-        <property name="description" type="java.lang.String">
-            <column name="description" length="1024" />
-        </property>
-        <property name="timeStamp" type="java.util.Date">
-            <column name="timeStamp" length="45" />
-        </property>
     </class>
-
-    <query name="Sighting.findAll">from Sighting as con Order by con.firstName</query>
 
 </hibernate-mapping>

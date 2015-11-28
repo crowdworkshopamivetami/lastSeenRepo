@@ -124,11 +124,11 @@ public class User {
         this.trips = trips;
     }
 
-    public List<MissingPerson> getMissPerson(){
+    public List<MissingPerson> getMissPersons(){
         return this.missPersons;
     }
 
-    public void setId(List<MissingPerson> missPersons){
+    public void setMissPersons(List<MissingPerson> missPersons){
         this.missPersons = missPersons;
     }
 
