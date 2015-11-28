@@ -19,7 +19,7 @@ public class InitServlet implements ServletContextListener {
     public void contextInitialized(final ServletContextEvent servletContextEvent) {
 
         initDBConnection();
-        System.out.print("Last Seen Server initialized.");
+        System.out.print("Last Seen Server initialized");
     }
 
     private void initDBConnection() {
